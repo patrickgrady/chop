@@ -1,0 +1,39 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.hero-search {
+  margin-bottom: 24px;
+  height: 3em;
+  position: relative;
+
+
+  input[type="search"] {
+    position: absolute;
+    height: 3em;
+    margin: 0;
+    text-indent: .5em;
+    border: 0;
+    outline: lighten($black, 66%) solid 1px;
+  }
+  input[type="search"]:hover,
+  input[type="search"]:focus,
+  input[type="search"]:active {
+    outline: #0099FF solid 1px;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    background: #0099FF;
+    border: none;
+    height: 3em;
+    width: 3em;
+    color: $white;
+  }
+
+
+}

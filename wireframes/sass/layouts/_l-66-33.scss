@@ -1,0 +1,21 @@
+/*!
+ * @file
+ * Layout rules for two thirds / one third (66/33) content
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.l-66-33__1 {
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp3){
+    @include zen-grid-item(8,1);
+  }
+}
+
+.l-66-33__2 {
+  @include zen-grid-item(12,1);
+  @include zen-clear();
+  @include breakpoint($bp3){
+    @include zen-grid-item(4,9);
+    @include zen-clear(none);
+  }
+}

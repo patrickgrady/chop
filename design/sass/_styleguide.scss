@@ -1,0 +1,201 @@
+/* ==============================================================
+   Styleguide header
+   ============================================================== */
+.styleguide-header {
+	@include slug(0,16);
+	background-color: $primary;
+}
+.styleguide-nav {
+	@include adjust-font-size-to($small-body-text, 4);
+	padding: $slug * 4 0;
+}
+.styleguide-nav > a {
+	display: block;
+	@include breakpoint($bp2) {
+		display: inline;
+		margin-left: $slug * 4;
+	}
+}
+.styleguide-nav a:link,
+.styleguide-nav a:visited {
+  color: $white;
+  text-decoration: none;
+  @include trans(.1s, ease-out);
+}
+.styleguide-nav a:hover,
+.styleguide-nav a:focus,
+.styleguide-nav a:active {
+  color: $text;
+}
+// for Nav active effects
+#selected { color: $text; }
+
+
+/* ==============================================================
+   Styleguide specific rules
+   ============================================================== */
+
+.l-styleguide {
+	@include zen-clear();
+	@include slug(6,0);
+	@include zen-grid-item(12, 1);
+	@include breakpoint($bp3) {
+		@include zen-grid-item(8, 1);
+	}
+}
+
+.l-style-definition {
+  @include zen-clear();
+  @include slug(0,3);
+  @include zen-grid-item(12, 1);
+}
+
+.style-example {
+  @include zen-clear();
+	@include slug(3,3);
+}
+
+.style-definition {
+  font-size: 80%;
+  padding-left: 0;
+  padding-right: 0;
+  @include breakpoint($bp1){
+    padding-left: ($zen-gutter-width / 2);
+    padding-right: ($zen-gutter-width / 2);
+  }
+  @include breakpoint($bp2){
+    padding-left: ($zen-gutter-width);
+    padding-right: ($zen-gutter-width);
+  }
+}
+
+.style-definition > .style-trigger {
+  text-align: right;
+  padding-right: 3em;
+}
+
+.style-layout {
+  height: 100px;
+  background: $primary;
+  color: $white;
+  padding: .5em;
+  margin-bottom: rhythm(4);
+}
+
+.style-hide {
+  display: none;
+}
+
+.style-trigger {
+  display: block;
+  position: relative;
+}
+
+.style-trigger.is-open {
+  &:after {
+    content: "minus";
+    font-family: "ssstandard";
+    position: absolute;
+    font-size: 10px;
+    right: 10px;
+  }
+}
+
+.style-trigger.is-closed {
+  &:after {
+    content: "plus";
+    font-family: "ssstandard";
+    position: absolute;
+    font-size: 10px;
+    right: 10px;
+  }
+}
+
+.style-trigger-wrapper {
+  padding: .5em 1em;
+  background-color: rgba(30, 53, 58, 0.02);
+  border-bottom: 1px solid $rules;
+}
+
+/*
+.style-label {
+	@include slug(6,0);
+}
+
+.style-label > h3 {
+  @include adjust-font-size-to($body-text, 4);
+  @include groom(1, $body-text, 600, $text-light);
+}
+.style-label > p {
+  @include adjust-font-size-to($body-text, 4);
+  @include groom(2, $small-body-text, 400, $text-light);
+  padding-bottom: $slug / 3;
+}
+
+
+/* ==============================================================
+   Color Palettes
+   ============================================================== */
+
+.swatch {
+	width: 100%;
+	height: $slug * 12;
+	@include slug(3, 2);
+}
+
+.l-inline-3up {
+//	@include clearfix;
+	float: left;
+	width: 30%;
+	margin-right: 5%;
+}
+.l-inline-3up.last {
+	margin-right: 0;
+}
+
+.primary {
+	background-color: $primary;
+}
+.primary-dark {
+	background-color: $primary-dark;
+}
+.footer-bg {
+	background-color: $footer-bg;
+}
+.active {
+	background-color: $active;
+}
+.heading {
+	background-color: $heading;
+}
+.text {
+	background-color: $text;
+}
+.text-light {
+	background-color: $text-light;
+}
+.white {
+	background-color: $white;
+	outline: 1px solid #ededed;
+}
+.black {
+	background-color: $black;
+}
+.rules {
+	background-color: $rules;
+}
+
+
+/* ==============================================================
+   Styleguide Footer
+   ============================================================== */
+
+.styleguide-footer {
+	@include slug(16,8);
+}
+
+.palantir-logo {
+	@include slug(1,1);
+	padding: 0 $zen-gutter-width / 2;
+	width: 140px;
+}

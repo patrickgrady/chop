@@ -1,0 +1,37 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+// Greg: please make this a mapbox embed.
+// @see https://www.mapbox.com/
+.map {
+  background: url("../imgs/mapbox-5.png") no-repeat;
+  background-size: cover;
+  background-position: 75% 100%;
+  @include breakpoint($bp2){
+    background-position: 50% 50%;
+  }
+}
+
+.map .call-to-action {
+  background: rgba($primary, .88);
+  @include slug(36,0);
+  @include breakpoint($bp3){
+    @include slug(16,16);
+  }
+  & .call-to-action__link {
+    background: darken($primary, 2%);
+    &:after {
+      content: "plus";
+      font-family: "ssstandard";
+      font-size: .6em;
+      margin-left: 6px;
+    }
+    &:hover {
+      background: rgba($white, .92);
+      color: darken($primary, 8%) !important;
+    }
+  }
+}

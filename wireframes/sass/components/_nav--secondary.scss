@@ -1,0 +1,27 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.container.general {
+  @include slug(8,8);
+}
+.nav--secondary {
+  @include slug(4,4);
+  @include breakpoint($bp3){
+    @include slug(0,8);
+  }
+ }
+
+.nav--secondary__links {
+  display: block;
+  background: lighten($black, 75%);
+  padding-left: .75em;
+  padding-right: .75em;
+  @include adjust-font-size-to($small-body-text, 6);
+}
+
+.nav--secondary__links + .nav--secondary__links {
+  margin-top: 2px;
+}

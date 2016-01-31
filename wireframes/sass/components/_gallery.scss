@@ -1,0 +1,70 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.gallery.mobile {
+  @include breakpoint(800px){
+    display: none;
+  }
+}
+
+.mobile-nav-item {
+  padding: 24px 0;
+  border-bottom: 1px solid lighten($black, 66%);
+}
+.mobile-nav-item:nth-of-type(1),
+.mobile-nav-item:nth-of-type(2) {
+  border-top: 1px solid lighten($black, 66%);
+}
+
+.gallery-item.mobile {
+  margin: 24px;
+  @include breakpoint($bp1){
+    margin: 48px;
+  }
+}
+
+.gallery.expanded {
+  display: none;
+  @include breakpoint(800px){
+    display: block;
+  }
+}
+
+.gallery-nav {
+  margin: 1.5em 0;
+}
+.gallery-nav.expanded {
+  margin-bottom: 0;
+}
+
+.gallery-nav a {
+  display: block;
+  @include breakpoint(800px){
+    display: inline-block;
+    padding-right: 1em;
+  }
+}
+
+.gallery-list {
+  @extend %clearfix;
+  list-style-type: none;
+}
+
+.gallery-list li {
+  @include slug(2,2);
+  @include breakpoint($bp1){
+    @include slug(4,4);
+  }
+}
+
+.gallery-item {
+  border: 1px solid lighten($black, 66%);
+}
+
+.gallery-item__link {
+  display: inline-block;
+  padding: 1em;
+}

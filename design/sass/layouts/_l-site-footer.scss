@@ -1,0 +1,83 @@
+/*!
+ * @file
+ * Layout rules for footer content
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.l-logo-chop--footer {
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp6){
+    @include zen-grid-item(4,1);
+  }
+}
+
+.l-nav--footer-1 {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+  @include breakpoint(400px){
+    @include zen-grid-item(6,1);
+  }
+  @include breakpoint($bp3){
+    @include zen-grid-item(3,1);
+  }
+  @include breakpoint($bp6){
+    @include zen-clear(none);
+    @include zen-grid-item(2,1);
+  }
+}
+
+.l-nav--footer-2 {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+  @include breakpoint(400px){
+    @include zen-clear(none);
+    @include zen-grid-item(6,7);
+  }
+  @include breakpoint($bp3){
+    @include zen-clear(none);
+    @include zen-grid-item(3,4);
+  }
+  @include breakpoint($bp6){
+    @include zen-clear(none);
+    @include zen-grid-item(2,3);
+  }
+}
+
+.l-nav--footer-3 {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+  @include breakpoint(400px){
+    @include zen-clear();
+    @include zen-grid-item(6,1);
+  }
+  @include breakpoint($bp3){
+    @include zen-clear(none);
+    @include zen-grid-item(3,7);
+  }
+  @include breakpoint($bp6){
+    @include zen-clear(none);
+    @include zen-grid-item(2,5);
+  }
+}
+
+.l-nav--footer-4 {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+  @include breakpoint(400px){
+    @include zen-clear(none);
+    @include zen-grid-item(6,7);
+  }
+  @include breakpoint($bp3){
+    @include zen-clear(none);
+    @include zen-grid-item(3,10);
+  }
+  @include breakpoint($bp6){
+    @include zen-clear(none);
+    @include zen-grid-item(2,7);
+  }
+}
+
+.l-small-text {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+}

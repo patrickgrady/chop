@@ -1,0 +1,340 @@
+/*!
+ * @file
+ * Define your typography system here.
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+/* ===============================================================
+   Modular Scale (Major Third: 18px @ 1:1.25)
+   @see http://modularscale.com/
+   Choose your base font size based on mobile and go from there.
+   =============================================================== */
+// @todo: add a scale variable to automatically generate the text resizing ($scale: 1.25;)
+
+$display-text:         44px; // h1 alternate-a
+$large-heading:        35px; // h1
+$medium-heading:       28px; // h2
+$small-heading:        23px; // h3
+$large-body-text:      18px; // h4
+$body-text: $base-font-size; // h5, p
+$small-body-text:      12px; // h6
+
+/* ==============================================================
+   Global Type Styles
+   Here for designer convenience, overwrites any normalize rules.
+   ============================================================== */
+
+html {
+  background: $white;
+  // Sets a font stack from _init.scss
+  font-family: $base-font-family;
+  // Controls global font resizing
+  font-size: $base-font-size;
+  @include breakpoint($bp1) {
+    font-size: 102%;
+  }
+  @include breakpoint($bp3) {
+    font-size: 105%;
+  }
+  @include breakpoint($bp4) {
+    font-size: 110%;
+  }
+}
+
+// Spec a webfont and set the base type style for the body
+body {
+  font-family: 'Whitney SSm A', 'Whitney SSm B', $helvetica;
+  @include adjust-font-size-to($body-text, 4.125);
+  @include groom(0, $body-text, 400, $text);
+}
+
+// Use to spec a 'display font' (if avaiable)
+%display-type {
+  font-family: 'Sentinel A', 'Sentinel B';
+}
+
+h1,
+.h1 {
+  @include adjust-font-size-to($large-heading, 6.5);
+  @include groom(1, $large-heading, 400, $heading);
+  @extend %display-type;
+}
+
+h2,
+.h2 {
+  @include adjust-font-size-to($small-heading, 5);
+  @include groom(2, $small-heading, 600, $heading);
+}
+
+h3,
+.h3 {
+  @include adjust-font-size-to($large-body-text, 4);
+  @include groom(2, $large-body-text, 600, $heading);
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @include adjust-font-size-to($body-text, 4);
+  @include groom(0, $body-text, 600, $heading);
+}
+
+// style your lists
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: numbers;
+}
+
+figcaption {
+  @include adjust-font-size-to($small-body-text, 4);
+  @include groom(4, $small-body-text, 400, $text);
+}
+
+// Use this if your webfont uses numbers to spec bold, so wysiwyg
+// editors work correctly.
+
+b,
+strong {
+  font-weight: 600;
+  color: $text;
+}
+
+
+// style your horizontal rules
+hr {
+  height: 1px;
+  background: $rules;
+  margin: rhythm(0) 0;
+  border: none;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* =============================================================
+   Links
+   ============================================================= */
+
+/**
+ * Define your site's basic link behavior. (i.e. what would happen in a wysiwyg editor)
+ * The order of link states are based on Eric Meyer's article:
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+ */
+
+a:link,
+a:visited {
+  font-weight: 600;
+  color: darken($primary, 4%);
+  @include trans(.15s, ease-out);
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  color: darken($active, 8%);
+}
+
+/* =================================================================
+   Forms Elements
+   ================================================================ */
+
+/**
+ * Define your site's default form elements here.
+ */
+
+input[type="text"],
+input[type="search"] {
+  @include box-sizing(border-box);
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+  background: $white;
+  width: 100%;
+  height: 2em;
+  text-indent: .5em;
+  color: $black;
+  border: 1px solid lighten($text, 54%);
+  outline: none;
+  @include trans(.1s, ease-out);
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0;
+    border: 1px solid $active;
+  }
+}
+
+select {
+  @include box-sizing(border-box);
+  width: 100%;
+  -webkit-appearance: none;
+  border-radius: 0;
+  height: 2em;
+  text-indent: .5em;
+  background-color: $white;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAYAAAD68A/GAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU4QTMzNkUyNDAwQzExRTNBOEY4OTE4N0E1NkQ4QjVCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU4QTMzNkUzNDAwQzExRTNBOEY4OTE4N0E1NkQ4QjVCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RThBMzM2RTA0MDBDMTFFM0E4Rjg5MTg3QTU2RDhCNUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RThBMzM2RTE0MDBDMTFFM0E4Rjg5MTg3QTU2RDhCNUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4x37VGAAAAWklEQVR42mI0NjZeysDAEMWAHyxlAhKZQPwAj6L7QJwFUvgJiKOB+C8WRX+gcp+YoALHgLgZi0KQ2HEQgwlJsAWIjyLxjwBxK4yDrBBkdQwQf4DiGGTnAAQYAGJbEyV4nwHtAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  border: 1px solid lighten($text, 54%);
+  outline: none;
+  @include trans(.1s, ease-out);
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0;
+    border: 1px solid $active;
+  }
+}
+
+input + input,
+select + select,
+input + select,
+select + input {
+  margin-top: .5em;
+}
+
+button {
+  background: $active;
+  border: 1px solid transparent;
+  color: $white;
+  height: 2em;
+  margin: 0;
+  padding: 0 .5em;
+  @include trans(.1s, ease-out);
+}
+button:hover {
+  background: darken($active, 5%);
+  color: $white;
+  border: 1px solid darken($active, 5%);
+}
+button:focus {
+  outline-style: dotted;
+  outline-color: $primary;
+  outline-width: 1px;
+}
+
+button[type="reset"] {
+  color: $text;
+  font-size: 14px;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+}
+button[type="reset"]:hover {
+  color: $active;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  top: 7px;
+  margin-right: .5em;
+  float: left;
+}
+
+textarea {
+}
+
+fieldset {
+}
+
+legend {
+}
+
+/* Styles for placeholder text */
+::-webkit-input-placeholder {
+  color: $text-light;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $text-light;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $text-light;
+}
+
+:-ms-input-placeholder {
+  color: $text-light;
+}
+
+/* ===============================================================
+   Pager
+   =============================================================== */
+
+/**
+ * Define your site's default pager here.
+ */
+
+.pager {
+  @extend %clearfix;
+  margin: 1.5em 0 3em 0;
+}
+
+.pager-item {
+  @include adjust-font-size-to($small-body-text, 3);
+  display: block;
+  float: left;
+  background: lighten($text-light, 25%);
+  color: $heading !important;
+  text-decoration: none;
+  line-height: 36px;
+  padding: 0 1em;
+  margin: 0 2px 0 0;
+  &:hover {
+    background: lighten($text-light, 15%);
+  }
+}
+
+.pager-item .ss-icon {
+  font-size: 90%;
+  position: relative;
+  top: 2px;
+}
+
+.pager-item.is-active {
+  font-weight: 600;
+  background: $active;
+  color: $white !important;
+  cursor: default;
+  }
+
+.pager-item.is-disabled {
+  background: lighten($text-light, 25%);
+  color: lighten($text-light, 15%) !important;
+  cursor: default;
+}
+
+.pager-count {
+  clear: both;
+  margin-bottom: .33em;
+}
+/* ==============================================================
+   Type Style Alterations
+   ============================================================== */
+/*
+.class-name {
+  @include adjust-font-size-to($fontsize, base-line-units);
+  @include groom(base-line-unit-after, $font-size, font-weight, $color);
+}
+*/
+
+.article__subtitle {
+  @include adjust-font-size-to($large-body-text, 4.25);
+  @include groom(3, $body-text, 600, $text-light);
+
+}
+
+.deck-copy {
+  @include adjust-font-size-to($large-body-text, 4.5);
+}
+
+.article__details {
+  @include adjust-font-size-to($small-body-text, 4.25);
+  @include groom(1, $small-body-text, 600, $text-light);
+}

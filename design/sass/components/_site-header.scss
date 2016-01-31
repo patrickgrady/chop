@@ -1,0 +1,184 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.site-header {
+  background: $primary;
+  padding-top: 24px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.logo-chop--header {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+  float: left;
+  background: url("../imgs/logo-chop-mini.png") no-repeat;
+  @include breakpoint($high-res){
+    background: url("../imgs/logo-chop-mini.svg") no-repeat;
+  }
+  width: 78px;
+  height: 30px;
+  @include breakpoint(660px){
+    background: url("../imgs/logo-chop-wide.png") no-repeat;
+    width: 420px;
+    @include breakpoint($high-res){
+      background: url("../imgs/logo-chop-wide.svg") no-repeat;
+    }
+  }
+}
+
+.nav--primary.is-mobile {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 177px;
+  height: 72px;
+  @include breakpoint(1100px){
+    display: none;
+  }
+}
+
+.nav--primary.is-mobile .trigger {
+  @include box-sizing(border-box);
+  float: left;
+  display: inline-block;
+  color: $white;
+  text-decoration: none;
+  height: 72px;
+  border-left: 1px solid $primary-dark;
+  padding: 30px 24px 0 24px;
+  font-size: 21px;
+  line-height: 21px;
+  @include trans(.1s, ease-out);
+  &:hover {
+    background: $primary-dark;
+  }
+}
+
+.ss-icon.menu {
+  position: relative;
+  bottom: 4px;
+  font-size: 16px;
+}
+.trigger .ss-icon:after {
+  content: "dropdown";
+  font-family: "ssstandard";
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.nav--primary.is-expanded {
+  display: none;
+  clear: both;
+  padding-top: 6px;
+  @include breakpoint(1100px){
+    display: block;
+  }
+}
+
+.nav--primary.is-expanded .navlink {
+  display: inline-block;
+  color: $white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px; // Don't want this type to scale
+  line-height: 36px;
+  padding-left: 1em;
+  padding-right: 1em;
+  @include trans(.15s, ease-out);
+  &:hover {
+    background: $primary-dark;
+  }
+}
+
+.nav--primary__left {
+  float: left;
+  margin-left: -12px;
+}
+.nav--primary__right {
+  float: right;
+}
+
+.site-header .navlink {
+  float: left;
+}
+
+.actions {
+  float: right;
+  background: $active;
+  color: rgba($white, .9) !important;
+  font-size: 13px;
+  line-height: 31px;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: 12px;
+  &:after {
+    content: "dropdown";
+    font-family: "ssstandard";
+    float: right;
+    font-size: 10px;
+    margin-left: 3px;
+  }
+  &:hover {
+    background: darken($active, 4%);
+    color: $white;
+  }
+}
+
+.nav--secondary {
+  display: none;
+  @include breakpoint(1100px){
+    display: block;
+    position: relative;
+    top: -3px;
+    float: right;
+  }
+}
+
+.nav--secondary a {
+  color: $white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5em;
+  margin-left: 12px;
+  @include trans(.1s, ease-out);
+  &:hover {
+    color: darken($primary, 24%);
+  }
+}
+
+.search-and-actions {
+  display: none;
+  @include breakpoint(1100px){
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+.search--header {
+  float: right;
+  position: relative;
+  font-size: 14px;
+  margin-left: 12px;
+  & input[type="search"] {
+    height: 30px;
+  }
+}
+
+.search--header__button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  width: 30px;
+  & .ss-icon {
+    position: relative;
+    top: 2px;
+  }
+}

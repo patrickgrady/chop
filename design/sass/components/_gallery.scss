@@ -1,0 +1,207 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.gallery ul {
+  padding: 0;
+}
+/* ==============================================================
+   Mobile Gallery
+   ============================================================== */
+
+.gallery.mobile {
+  margin: 1.5em 0;
+  @include breakpoint(800px){
+    display: none;
+  }
+}
+
+.gallery-mobile-open-wrap {
+  padding-bottom: 18px;
+  @include breakpoint($bp1){
+    padding-bottom: 36px;
+  }
+  //background: lighten($text-light, 34%);
+  @include background (linear-gradient(bottom, lighten($text-light, 34%), $white));
+}
+
+.mobile-nav-item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 1.5em .75em;
+  border-bottom: 1px solid $rules;
+  &:nth-of-type(1) {
+    border-top: 1px solid $rules;
+  }
+}
+
+.mobile-nav-item.is-closed {
+  color: $text-light;
+  &:hover {
+    color: $active;
+  }
+}
+.mobile-nav-item.is-closed:after {
+  content: "navigatedown";
+  font-family: "ssstandard";
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 38%;
+  margin-right: .75em;
+}
+
+.mobile-nav-item.is-open {
+  color: $active;
+  border-bottom: 0;
+}
+
+.mobile-nav-item.is-open:after {
+  content: "navigateup";
+  font-family: "ssstandard";
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  margin-right: .75em;
+}
+
+.gallery-item.mobile {
+  margin: 0 24px 0 24px;
+  @include breakpoint($bp1){
+    margin: 0 48px 0 48px;
+  }
+}
+
+.gallery-item-nav {
+  margin: 12px 18px 0 18px;
+  @include breakpoint($bp1){
+    margin: 18px 48px 0 48px;
+  }
+  position: relative;
+  text-align: center;
+  & .back {
+    position: absolute;
+    left: 1.5em;
+    text-decoration: none;
+    color: $text-light;
+  }
+  & .forward {
+    position: absolute;
+    right: 1.5em;
+    text-decoration: none;
+    color: $text-light;
+  }
+  & p {
+    margin-bottom: 0;
+  }
+}
+
+/* ==============================================================
+   Expanded Gallery
+   ============================================================== */
+
+.gallery.expanded {
+  padding: .75em 0;
+  @include background(linear-gradient(bottom, rgba(#1e353a,.03), rgba(#1e353a,0)50%));
+  display: none;
+  @include breakpoint(800px){
+    display: block;
+  }
+}
+
+.gallery-nav.expanded {
+  margin: 1.5em 0 0 0;
+  & a {
+    color: $text-light;
+    &:hover {
+      color: $active;
+    }
+    &.is-selected {
+      color: $white;
+      background: $active;
+    }
+  }
+}
+
+.expanded-nav-item {
+  @include adjust-font-size-to($small-body-text, 4);
+  text-decoration: none;
+  display: inline-block;
+  padding: .5em 1em;
+  &.is-selected {
+    position: relative;
+    &:after {
+      content: "";
+      height: 0;
+      position: absolute;
+      width: 0;
+      border: 10px solid transparent;
+      border-top-color: $active;
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+    }
+  }
+}
+
+.gallery-nav-wrap {
+  border-bottom: 1px solid $rules;
+}
+
+.gallery-list {
+  @extend %clearfix;
+  list-style-type: none;
+  margin: 0;
+}
+
+.gallery-list li {
+  @include slug(2,2);
+  @include breakpoint($bp1){
+    @include slug(4,4);
+  }
+}
+
+.gallery-item {
+  background: $white;
+  border: 1px solid $rules;
+}
+
+.gallery-item:hover {
+  .gallery-item__link {
+    color: darken($active,5%) !important;
+    &:after {
+      margin-left: 6px;
+      opacity: 1;
+      color: darken($active,5%) !important;
+    }
+  }
+}
+
+.gallery-item__link {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none;
+  @include adjust-font-size-to($small-body-text, 3);
+  color: $text !important;
+  &:after {
+    content: "next";
+    font-family: "ssstandard";
+    font-size: .5em;
+    margin-left: 0;
+    opacity: 0;
+    color: rgba(darken($active,5%), 0) !important;
+    @include trans(.1s, ease-out);
+  }
+  &:hover {
+    color: darken($active,5%) !important;
+    &:after {
+      margin-left: 6px;
+      opacity: 1;
+      color: darken($active,5%) !important;
+    }
+  }
+}

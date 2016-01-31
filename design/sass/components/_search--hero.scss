@@ -1,0 +1,54 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.search-wrapper {
+  @extend %featured;
+}
+
+.search--hero {
+  margin-bottom: 24px;
+  height: 3em;
+  position: relative;
+
+  input[type="search"] {
+    position: absolute;
+    height: 3em;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    height: 3em;
+  }
+
+}
+
+.filter__link,
+.alpha__link {
+  @include adjust-font-size-to($small-body-text, 3);
+  display: inline;
+  color: rgba($white, .75) !important;
+  background: lighten($text-light, 5%);
+  padding: .5em .75em;
+  margin: 0 2px 2px 0;
+  float: left;
+  &:hover {
+    background: $heading;
+  }
+  &.is-selected {
+    background: $heading;
+  }
+}
+
+.alpha__link {
+  font-weight: 600;
+}
+.error-text {
+  @include adjust-font-size-to($small-body-text, 3);
+  @include groom(0, $small-body-text, 400, $text);
+}
+

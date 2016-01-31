@@ -1,0 +1,36 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.results-item {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid lighten($black, 70%);
+}
+
+.results-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.results-item img {
+  float: left;
+  width: 132px;
+  margin-right: 1.5em;
+  margin-bottom: .5em;
+  @include breakpoint($bp1) {
+    width: 180px;
+  }
+}
+
+.results-item p {
+  @extend %clearfix;
+}
+
+.results-item .date {
+  text-transform: uppercase;
+  color: lighten($black, 40%);
+  @include adjust-font-size-to($small-body-text, 3);
+}

@@ -1,0 +1,140 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.site-footer {
+  background: $footer-bg;
+  padding: 3em 0 0 0;
+  @include breakpoint($bp6){
+    padding-top: 4.5em;
+  }
+  & ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  & a {
+    color: rgba($white, .66);
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+    }
+  }
+}
+
+.site-footer hr {
+  height: 1px;
+  background: rgba($white, .2);
+  margin: rhythm(0) 0;
+  border: none;
+}
+
+.logo-chop--footer {
+  margin: 0 0 3em 0;
+  background: url("../imgs/logo-chop-mini.png") no-repeat 50% 0;
+  @include breakpoint($high-res){
+    background: url("../imgs/logo-chop-mini.svg") no-repeat 50% 0;
+  }
+  & p {
+    font-size: 13px; // Don't want this type to scale
+    font-weight: 600;
+    line-height: 1.5em;
+    color: rgba($white, .75);
+    text-align: center;
+    padding-top: 36px;
+  }
+  & .social {
+    width: 126px;
+    margin: auto;
+    padding-top: 6px;
+    padding-bottom: 18px;
+    //border-bottom: 1px solid rgba($white, .2);
+    @extend %clearfix;
+    & li {
+      font-size: 17px;
+      line-height: 1em;
+      float: left;
+      margin: 0 12px;
+    }
+  }
+  & .awards {
+    padding-top: 24px;
+    width: 160px;
+    margin: auto;
+  }
+  & .awards-img-1  {
+    margin-right: 12px;
+  }
+  & .awards-img-2  {
+    margin-left: 12px;
+  }
+}
+
+.nav--footer {
+  font-size: 13px; // Don't want this type to scale
+  line-height: 1.5em;
+}
+
+.nav--footer__title {
+  font-size: 14px; // Don't want this type to scale
+  color: rgba($white, .9);
+  @include slug(0,2);
+}
+
+.nav--footer__linklist {
+  margin: 1.5em 0 3em 0;
+  @include breakpoint($bp1){
+    margin: 0 0 3em 0;
+  }
+  & li {
+    @include slug(0,3);
+  }
+  & .navlink {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.small-text {
+  font-size: 12px;
+  color: rgba($white, .66);
+  line-height: 1.5em;
+  padding-top: 6px;
+  padding-bottom: 24px;
+  @include breakpoint($bp1){
+    padding-top: 24px;
+  }
+  & ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  & a {
+    font-weight: 400;
+  }
+}
+
+.copyright {
+  @include breakpoint($bp2){
+    float: left;
+  }
+}
+
+.small-text--left {
+  @include breakpoint($bp2){
+    float: left;
+  }
+  & li {
+    float: left;
+    margin-right: 12px;
+    @include breakpoint($bp2){
+      margin-right: 0;
+      &:before {
+        content: "|";
+        padding: 0 12px;
+      }
+    }
+  }
+}

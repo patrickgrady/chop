@@ -1,0 +1,21 @@
+/*!
+ * @file
+ * Layout rules for 2-up content
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.l-2up-1 {
+  @include zen-clear();
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp2){
+    @include zen-grid-item(6,1);
+  }
+}
+
+.l-2up-2 {
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp2){
+    @include zen-clear(none);
+    @include zen-grid-item(6,7);
+  }
+}

@@ -1,0 +1,66 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.container.general {
+  @include slug(8,8);
+}
+
+.nav--side-nav {
+  border: 1px solid $rules;
+  @include slug(4,4);
+  @include breakpoint($bp2){
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+  @include breakpoint($bp4){
+    margin-left: 0;
+    margin-right: 0;
+    @include slug(0,8);
+  }
+  & a {
+    color: rgba($white, .9);
+  }
+ }
+
+.nav--side-nav__links {
+  display: block;
+  position: relative;
+  padding: 1.5em 2.25em 1.5em 1.5em;
+  font-size: 13px; // Don't want this type to scale
+  line-height: 1.25em;
+  color: darken($text-light, 12%) !important;
+  background: lighten($rules, 6%);
+  &:hover {
+    background: darken($active, 4%);
+    color: $white !important;
+  }
+  @include breakpoint($bp4){
+    padding: 1.25em 2.25em 1.25em 1.5em;
+  }
+}
+
+.nav--side-nav__links + .nav--side-nav__links {
+  border-top: solid 1px $rules;
+}
+
+.nav--side-nav__links:hover {
+  .ss-icon {
+    color: $white;
+  }
+}
+.nav--side-nav__links .ss-icon {
+  color: $active;
+}
+.ss-icon.back {
+  font-size: 11px;
+  margin-right: .75em;
+}
+.ss-icon.forward {
+  position: absolute;
+  right: 1.5em;
+  top: 38%;
+  font-size: 11px;
+}

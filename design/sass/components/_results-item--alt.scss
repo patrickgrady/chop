@@ -1,0 +1,49 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.results-item--alt {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid $rules;
+}
+
+.results-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.results-item--alt header {
+  display: block;
+  width: 100%;
+  @include breakpoint($bp2) {
+    float: left;
+  }
+}
+
+.location-title,
+.event-title {
+  margin-bottom: 3px;
+}
+.location-subtitle,
+.event-subtitle {
+  @include adjust-font-size-to($small-body-text, 3);
+  @include groom(2, $small-body-text, 400, $text);
+}
+
+.results-item--alt img {
+  margin-top: 6px;
+  margin-bottom: 12px;
+  @include breakpoint(540px) {
+    margin-bottom: 0;
+    margin-left: 1.5em;
+    float: right;
+    width: 264px;
+  }
+}
+
+.results-item--alt p:last-child {
+  @extend %clearfix;
+}

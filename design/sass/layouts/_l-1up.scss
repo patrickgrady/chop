@@ -1,0 +1,9 @@
+/*!
+ * @file
+ * Layout rules for full-width content
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.l-1up {
+  @include zen-grid-item(12,1);
+}

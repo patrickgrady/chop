@@ -1,0 +1,35 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.locations-finder {
+
+  img {
+    width: 100%;
+  }
+
+  .locations-search {
+    list-style-type: none;
+    padding: 0;
+    margin-top: .75em;
+    margin-bottom: 0;
+  }
+
+  .locations-criteria {
+    list-style-type: none;
+    margin-top: .5em;
+    margin-bottom: .5em;
+
+    h5 {
+      margin-bottom: .5em;
+    }
+  }
+
+  .buttons {
+    clear: left;
+    padding-top: 1em;
+  }
+
+}

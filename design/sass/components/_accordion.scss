@@ -1,0 +1,92 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.accordion {
+  margin-bottom: $zen-gutter-width;
+}
+.accordion ul {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  & ul {
+    margin: 0;
+  }
+}
+
+.accordion a {
+  display: block;
+  padding: .75em 2.25em .75em .75em;
+  line-height: 1.4em;
+  border-bottom: 1px solid $rules;
+  @include breakpoint($bp3){
+    padding-left: 1em;
+  }
+}
+
+.accordion-container {
+  display: none;
+}
+
+.accordion-parent {
+  display: block;
+}
+
+.accordion-child {
+  @include breakpoint($bp3){
+    text-indent: 1.5em;
+  }
+}
+
+.accordion-grandchild {
+  text-indent: .75em;
+  @include breakpoint($bp1){
+    text-indent: 1.5em;
+  }
+  @include breakpoint($bp3){
+    text-indent: 3em;
+  }
+}
+
+.accordion-trigger.is-open,
+.accordion-trigger.is-open + .accordion-container {
+  background: lighten($text-light, 34%);
+}
+
+.accordion-trigger {
+  position: relative;
+  text-decoration: none;
+  color: darken($text-light, 12%) !important;
+  &:hover {
+    color: $heading !important;
+  }
+}
+.accordion-trigger.is-closed:after {
+  content: "navigatedown";
+  font-family: "ssstandard";
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 33%;
+  margin-right: .75em;
+  @include breakpoint($bp3){
+    margin-right: 1.5em;
+  }
+}
+.accordion-trigger.is-open {
+  color: $heading !important;
+  &:after {
+    content: "navigateup";
+    font-family: "ssstandard";
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 33%;
+    margin-right: .75em;
+    @include breakpoint($bp3){
+      margin-right: 1.5em;
+    }
+  }
+}

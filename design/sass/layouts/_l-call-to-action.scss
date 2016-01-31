@@ -1,0 +1,18 @@
+/*!
+ * @file
+ * layout for featured content in hero and map blocks
+ */
+
+ .l-call-to-action--right {
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp5){
+    @include zen-grid-item(5,1,right);
+  }
+ }
+
+ .l-call-to-action--left {
+  @include zen-grid-item(12,1);
+  @include breakpoint($bp5){
+    @include zen-grid-item(5,1);
+  }
+ }

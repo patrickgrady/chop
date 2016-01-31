@@ -1,0 +1,35 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.call-to-action {
+  padding: 1.5em;
+  color: $white;
+}
+
+.call-to-action__title {
+  @include adjust-font-size-to($medium-heading, 4.5);
+  @include groom(1.5, $medium-heading, 400, $white);
+  @extend %display-type;
+}
+
+.call-to-action__description {
+  @include adjust-font-size-to($body-text, 3.5);
+  @include groom(2, $body-text, 300, $white);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.call-to-action__link {
+  @include adjust-font-size-to($small-body-text,3);
+  color: $white !important;
+  font-weight: 400 !important;
+  display: inline-block;
+  padding: .25em .75em;
+  text-decoration: none;
+  border: 1px solid rgba($white, .5);
+  @include border-radius(1.5em, 1.5em);
+}

@@ -1,0 +1,27 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.alpha-list {
+  margin: 1.5em 0;
+}
+
+.alpha-list hr {
+  margin-bottom: .75em;
+}
+
+.alpha-list__item {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  @include breakpoint($bp3){
+    margin-top: .75em;
+    margin-bottom: .75em;
+  }
+}
+
+.alpha-list__item p {
+  margin-top: 0;
+  margin-bottom: .5em;
+}

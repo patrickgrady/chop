@@ -1,0 +1,125 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+// extra classes for bg images
+.hero-centers-programs {
+  @include background(
+    linear-gradient(bottom, rgba(#1e353a,.25), rgba(#1e353a,0)50%), image-url("../imgs/fpo-hero-1.jpg")
+  );
+}
+.hero-conditions-diseases {
+  @include background(
+    linear-gradient(bottom, rgba(#1e353a,.25), rgba(#1e353a,0)50%), image-url("../imgs/fpo-hero-2.jpg")
+  );
+}
+.hero-locations {
+  @include background(
+    linear-gradient(bottom, rgba(#1e353a,.25), rgba(#1e353a,0)50%), image-url("../imgs/fpo-hero-3.jpg")
+  );
+}
+.hero-doctors {
+  @include background(
+    linear-gradient(bottom, rgba(#1e353a,.25), rgba(#1e353a,0)50%), image-url("../imgs/fpo-hero-4.jpg")
+  );
+}
+.hero-centers-programs,
+.hero-conditions-diseases,
+.hero-locations,
+.hero-doctors {
+  background-position: 64% 70%;
+  background-repeat: no-repeat;
+  @include breakpoint($bp5){
+    background-size: cover;
+    background-position: 100% 50%;
+  }
+}
+
+// may need some javascript here to center the bg vid
+.hero video {
+  position: absolute;
+  top: -24%;
+  right: -50%;
+  z-index: -1000;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  display: none;
+  @include breakpoint($bp2){
+    display: block;
+  }
+  @include breakpoint($bp3){
+    right: -19%;
+  }
+  @include breakpoint($bp5){
+    top: -10%;
+    left: 0;
+  }
+}
+
+.hero .image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+  min-width: 100%;
+  min-height: 100%;
+  background: url("../imgs/video.jpg") no-repeat 50% 100%;
+  background-size: 1000px;
+}
+
+.hero .pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  min-width: 100%;
+  min-height: 100%;
+  @include background(image-url("../imgs/pattern-3.png"),
+    linear-gradient(bottom, rgba(#1e353a,.2), rgba(#1e353a,0)50%));
+}
+
+.hero .call-to-action {
+  background: rgba($active, .88);
+  @include slug(30,0);
+  @include breakpoint($bp2){
+    @include slug(48,0);
+  }
+  @include breakpoint($bp5){
+    @include slug(6,14);
+  }
+  & .call-to-action__link {
+    background: darken($active, 2%);
+    &:after {
+      content: "plus";
+      font-family: "ssstandard";
+      font-size: .6em;
+      margin-left: 6px;
+    }
+    &:hover {
+      background: rgba($white, .92);
+      color: darken($active, 8%) !important;
+    }
+  }
+}
+
+#home .hero .call-to-action {
+  @include slug(30,0);
+  @include breakpoint($bp2){
+    @include slug(48,0);
+  }
+  @include breakpoint($bp5){
+    @include slug(6,24);
+  }
+  @include breakpoint($bp6){
+    @include slug(6,30);
+  }
+}

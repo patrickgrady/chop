@@ -1,0 +1,25 @@
+/*!
+ * @file
+ * Design Component (SMACSS module) partial
+ * @copyright Copyright (c) 2013 Palantir.net
+ */
+
+ .results-item--doctors {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid $rules;
+}
+
+.results-item--doctors img {
+  float: left;
+  width: 78px;
+  margin-right: 1.5em;
+  margin-top: 6px;
+  @include breakpoint($bp3) {
+    width: 120px;
+  }
+}
+
+.results-item--alt p:last-child {
+  @extend %clearfix;
+}
